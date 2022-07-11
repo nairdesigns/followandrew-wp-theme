@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Blog Site Template">
 	<meta name="author" content="https://youtube.com/FollowAndrew">
-	<link rel="shortcut icon" href="images/logo.png">
+	<link rel="shortcut icon" href="/wp-content/themes/followandrew/assets/images/logo.png">
 
 	<?php
 	wp_head();
@@ -28,6 +28,12 @@
 			</button>
 
 			<div id="navigation" class="collapse navbar-collapse flex-column">
+				<?php
+				if (function_exists('the_custom_logo')) {
+					$custom_logo_id = get_theme_mod('custom_logo');
+					$logo = wp_get_attachment_image_src($custom_logo_id);
+				};
+				?>
 
 				<?php
 				wp_nav_menu(
@@ -42,7 +48,7 @@
 				);
 				?>
 
-				<img class="mb-3 mx-auto logo" src="images/logo.png" alt="logo">
+				<img class="mb-3 mx-auto logo" src=<?php echo $logo[0] ?> alt="logo">
 
 			</div>
 		</nav>

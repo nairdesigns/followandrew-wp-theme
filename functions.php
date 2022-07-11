@@ -3,6 +3,7 @@
 function followandrew_theme_support() {
     //adds dynamic title tag support
     add_theme_support('title_tag');
+    add_theme_support('custom_logo');
 }
 
 function followandrew_menus() {
